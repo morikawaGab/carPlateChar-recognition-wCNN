@@ -12,8 +12,8 @@ from tensorflow.keras.layers import Input, Rescaling, Conv2D, MaxPooling2D, Flat
 WIDTH = HEIGHT = 240
 TRAIN_MODEL = True
 LEARNING_RATE = 0.001
-BATCH_SIZE = 4
-EPOCHS = 32
+BATCH_SIZE = 8
+EPOCHS = 96
 
 current_directory = os.path.abspath(os.getcwd())
 numbers_directory = current_directory + '/organizedCharacters/numbers'
@@ -79,7 +79,7 @@ def main():
     if TRAIN_MODEL:
         trainModel(model)
     else:
-        model.load_weights("saved(13000 samples).h5")
+        model.load_weights("saved.h5")
         _, test_acc = model.evaluate(test_dataset)
         print(f"Test accuracy: {test_acc:.3f}")
 
